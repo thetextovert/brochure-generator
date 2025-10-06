@@ -1,0 +1,42 @@
+| Feature               | Description                                                     |
+| --------------------- | --------------------------------------------------------------- |
+| Business Form         | Capture data (name, logo, services, contact, theme color, etc.) |
+| Live Brochure Preview | Show real-time preview using Angular bindings and Signals       |
+| Templates             | Offer layout variations (1-page, 2-column, image-heavy, etc.)   |
+| PDF Export            | Convert the preview to a downloadable PDF                       |
+| Responsive Design     | Make sure the preview adapts well to print and screen           |
+-------------------------------------------------------------------------------------------
+
+/src
+ ┣ /app
+ ┃ ┣ form.component.ts
+ ┃ ┣ preview.component.ts
+ ┃ ┣ template-selector.component.ts
+ ┃ ┣ download.component.ts
+ ┃ ┣ shared/
+ ┃ ┃ ┗ brochure.signal.ts
+ ┃ ┗ app.config.ts
+ ┣ assets/
+ ┃ ┗ sample-templates/
+ ┗ styles.scss
+
+---------------------------------------------------------------------------
+src/
+ ├── app/
+ │   ├── core/
+ │   │   └── services/pdf-generator.service.ts
+ │   ├── features/
+ │   │   └── brochure/
+ │   │       ├── business-form/
+ │   │       ├── brochure-preview/
+ │   │       ├── template-selector/
+ │   │       └── brochure-container.component.ts
+ │   ├── shared/
+ │   │   ├── components/
+ │   │   └── directives/
+ │   └── app.component.ts
+ ├── assets/
+ │   └── templates/
+ │       ├── default-template.html
+ │       ├── modern-template.html
+-----------------------------------------------------------------------------
