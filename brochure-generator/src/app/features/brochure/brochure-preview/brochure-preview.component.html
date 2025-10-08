@@ -1,1 +1,40 @@
-<p>brochure-preview works!</p>
+<div id="brochure-preview" class="brochure-preview">
+  <nz-card nzTitle="Business Brochure" [nzBordered]="true">
+    <div class="header-section">
+      <h2>{{ businessData()?.businessName || 'Your Business Name' }}</h2>
+      <h6>{{ businessData()?.tagline || 'Your tagline Name' }}</h6>
+      <p class="description">{{ businessData()?.description || 'Business description goes here.' }}</p>
+    </div>
+
+    <nz-divider></nz-divider>
+
+    <div class="contact-section">
+      <h3>Contact Information</h3>
+      <p><i nz-icon nzType="mail"></i> {{ businessData()?.contact?.email || 'your@email.com' }}</p>
+      <p><i nz-icon nzType="phone"></i> {{ businessData()?.contact?.phone || '+91-0000000000' }}</p>
+    </div>
+
+    <nz-divider></nz-divider>
+
+    <div class="services-section">
+      <h3>Our Services</h3>
+      <nz-list
+        *ngIf="businessData()?.services?.length; else noServices"
+        [nzDataSource]="businessData()?.services"
+        nzBordered
+        nzSize="small"
+        [nzRenderItem]="item"
+      >
+        <ng-template #item let-service>
+          <nz-list-item>
+            <i nz-icon nzType="check-circle"></i>
+            <span class="service-text">{{ service }}</span>
+          </nz-list-item>
+        </ng-template>
+      </nz-list>
+      <ng-template #noServices>
+        <p class="no-services">No services added yet.</p>
+      </ng-template>
+    </div>
+  </nz-card>
+</div>

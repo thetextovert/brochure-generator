@@ -1,1 +1,20 @@
-<p>brochure-container works!</p>
+<div class="brochure-container">
+  <div class="left-panel">
+    <app-business-form
+      (formDataChanged)="onFormDataChange($event)"
+    ></app-business-form>
+  </div>
+
+  <nz-divider nzType="vertical"></nz-divider>
+
+  <div class="right-panel">
+    <!-- <app-brochure-preview></app-brochure-preview> -->
+    <app-brochure-preview [businessData]="businessData()"></app-brochure-preview>
+
+    <div class="actions">
+      <button nz-button nzType="primary" (click)="downloadBrochure()">
+        Download Brochure
+      </button>
+    </div>
+  </div>
+</div>

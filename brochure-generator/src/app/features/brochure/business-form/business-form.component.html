@@ -1,0 +1,106 @@
+<form nz-form [formGroup]="businessForm" class="business-form">
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzRequired>Business Name</nz-form-label>
+    <nz-form-control [nzSpan]="18">
+      <input
+        nz-input
+        formControlName="businessName"
+        placeholder="Enter your business name"
+      />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6">Tagline</nz-form-label>
+    <nz-form-control [nzSpan]="18">
+      <input
+        nz-input
+        formControlName="tagline"
+        placeholder="Your business tagline"
+      />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6">Description</nz-form-label>
+    <nz-form-control [nzSpan]="18">
+      <textarea
+        nz-input
+        rows="3"
+        formControlName="description"
+        placeholder="Describe your business"
+      ></textarea>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6">Services</nz-form-label>
+    <nz-form-control [nzSpan]="18">
+      <div
+        *ngFor="let service of services.controls; let i = index"
+        class="service-row"
+      >
+        <input
+          nz-input
+          [formControl]="service"
+          placeholder="Service {{ i + 1 }}"
+        />
+        <button
+          nz-button
+          nzType="link"
+          nzDanger
+          (click)="removeService(i)"
+          *ngIf="services.length > 1"
+        >
+          <i nz-icon nzType="delete"></i>
+        </button>
+      </div>
+      <button nz-button nzType="dashed" (click)="addService()">
+        <nz-icon nzType="plus" nzTheme="outline" /> Add Service
+      </button>
+    </nz-form-control>
+  </nz-form-item>
+
+  <fieldset>
+    <legend>Contact Information</legend>
+    <ng-container formGroupName="contact">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired>Email</nz-form-label>
+        <nz-form-control [nzSpan]="18">
+          <input
+            nz-input
+            formControlName="email"
+            placeholder="Enter email"
+          />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6">Phone</nz-form-label>
+        <nz-form-control [nzSpan]="18">
+          <input
+            nz-input
+            formControlName="phone"
+            placeholder="Enter phone number"
+          />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6">Address</nz-form-label>
+        <nz-form-control [nzSpan]="18">
+          <textarea
+            nz-input
+            rows="2"
+            formControlName="address"
+            placeholder="Enter address"
+          ></textarea>
+        </nz-form-control>
+      </nz-form-item>
+    </ng-container>
+  </fieldset>
+
+  <div class="form-actions">
+    <button nz-button nzType="default" (click)="resetForm()">Reset</button>
+  </div>
+</form>

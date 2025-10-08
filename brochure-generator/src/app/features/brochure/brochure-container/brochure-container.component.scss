@@ -1,0 +1,34 @@
+.brochure-container {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 24px;
+  flex-wrap: wrap;
+  background-color: #faad1447;
+}
+
+.left-panel {
+  flex: 1 1 40%;
+  min-width: 350px;
+  //   padding: 10px;
+  //   background-color: #00ffff17;
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.right-panel {
+  flex: 1 1 55%;
+  min-width: 400px;
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.actions {
+  text-align: right;
+  margin-top: 16px;
+}
